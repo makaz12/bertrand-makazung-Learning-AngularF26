@@ -5,6 +5,7 @@ export interface Project {
   description: string;
   display: boolean;
   programmingLanguages: String[];
+  tools?: String[];
   skills: String[];
   status: "in-progress" | "completed";
 }
