@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {Project} from "./shared/models/project";
+import {Project} from "./shared/models/porject-card/project";
 
 @Component({
   imports: [RouterOutlet],
