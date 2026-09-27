@@ -2,9 +2,16 @@
   <h2 class="title">My Projects</h2>
 
     <div class="project-card">
-
-
       <h3 class="item">{{project().name}}</h3>
+      <div (click)="toggle()">
+        <p class="item">Programming languages: {{project().programmingLanguages.join(', ')
+          }}</p>
+        <p class="item">Tools: {{project().tools.join(', ')}}</p>
+        <p class="item">Skills: {{project().skills.join(', ')}}</p>
+
+
+
+      </div>
 
       @if(project().imagePath !== ""){
         <img [src]="project()?.imagePath" [alt]="project()?.name">
@@ -15,15 +22,10 @@
       } @else {
         <p>No media</p>
       }
-
-      <p class="item">Programming languages: {{project().programmingLanguages.join(', ')
-        }}</p>
-      <p class="item">Tools: {{project().tools.join(', ')}}</p>
-      <p class="item">Skills: {{project().skills.join(', ')}}</p>
-
       @switch (project().status){
-        @case ("in-progress"){<span id="status" style="background-color: orange">{{project().status}}</span>}
-        @default {<span id="status" style="background-color: orange">{{project().status}}</span>}
+
+        @case ("in-progress"){<span id="statusIP">{{project().status}}</span id="statusIP">}
+        @default {<span id="statusCP">{{project().status}}</span>}
       }
 
     </div>

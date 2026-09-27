@@ -1,5 +1,6 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Project } from '../../../shared/models/project';
+import { ContentEvent } from '../../../shared/events/content-event';
 
 @Component({
   imports: [],
@@ -9,4 +10,14 @@ import { Project } from '../../../shared/models/project';
 })
 export class ProjectCardListItem {
   project = input.required<Project>();
+
+  contentEvent = output<ContentEvent>();
+  // opened = output<Project>()
+  expanded = false;
+  toggle(): void {
+    this.contentEvent.emit({
+      id: this.project().id,
+      action: 'opened',
+    });
+  }
 }
