@@ -1,1 +1,32 @@
-<p>project-card-list-item works!</p>
+<main>
+  <h2 class="title">My Projects</h2>
+
+    <div class="project-card">
+
+
+      <h3 class="item">{{project().name}}</h3>
+
+      @if(project().imagePath !== ""){
+        <img [src]="project()?.imagePath" [alt]="project()?.name">
+        <video controls width="500">
+          <source [src]="project()?.videoPath" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      } @else {
+        <p>No media</p>
+      }
+
+      <p class="item">Programming languages: {{project().programmingLanguages.join(', ')
+        }}</p>
+      <p class="item">Tools: {{project().tools.join(', ')}}</p>
+      <p class="item">Skills: {{project().skills.join(', ')}}</p>
+
+      @switch (project().status){
+        @case ("in-progress"){<span id="status" style="background-color: orange">{{project().status}}</span>}
+        @default {<span id="status" style="background-color: orange">{{project().status}}</span>}
+      }
+
+    </div>
+
+    <p class="item">No projects to display!</p>
+</main>

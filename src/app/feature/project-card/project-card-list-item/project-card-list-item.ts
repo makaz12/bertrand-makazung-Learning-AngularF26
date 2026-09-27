@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { Project } from '../../../shared/models/project';
 
 @Component({
   imports: [],
@@ -7,5 +8,5 @@ import { Component, input } from '@angular/core';
   templateUrl: './project-card-list-item.html',
 })
 export class ProjectCardListItem {
-  project = input<ProjectCardListItem>();
+  project = input.required<Project>();
 }
