@@ -1,13 +1,25 @@
+<main>
+
+  <h2 class="title">My Projects</h2>
 
 
-@for(project of projectList; track project.id){
 <!--  <app-project-card-list-item [project]="projectList"/>-->
-  @for (project of projectList; track project.id) {
+  @for (project of projectList; track project.id; let odd = $odd; let even = $even; let count = $count; let first = $first; let last = $last) {
+    @if(first){
+      <h3>{{count}} project(s) displayed</h3>
+    }
     <app-project-card-list-item
       [project]="project"
-      (contentEvent)="handleEevnt($event)">
+      (contentEvent)="handleEvent($event)"
+      [class.even]="even"
+      [class.odd]="odd"
+      [class.first]="first"
+      [class.last]="last"
+    >
     </app-project-card-list-item>
   }
-} @empty {
+ @empty {
   <p>There are no available project</p>
 }
+
+</main>

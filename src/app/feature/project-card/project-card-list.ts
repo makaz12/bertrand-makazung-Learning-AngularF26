@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Project } from '../../shared/models/project';
 import { ProjectCardListItem } from './project-card-list-item/project-card-list-item';
+import { ContentEvent } from '../../shared/events/content-event';
 
 @Component({
   imports: [ProjectCardListItem],
@@ -13,7 +14,7 @@ export class ProjectCardList {
     {
       id: 1,
       name: 'Form App',
-      imagePath: '../../public/images/Screenshot 2026-04-03 234326.png',
+      imagePath: '/images/m1.png',
       description: 'A form generator cli application entirely written in java',
       programmingLanguages: ['java'],
       tools: ['vsCode', 'maven', 'jdk version 21'],
@@ -24,7 +25,7 @@ export class ProjectCardList {
     {
       id: 2,
       name: 'Expense tracker',
-      imagePath: '../../public/images/expense-tracker.png',
+      imagePath: '../../../../public/images/expense-tracker.png',
       description: 'A small expense tracker built with HTML, CSS and JavaScript',
       programmingLanguages: ['html', 'css', 'javascript'],
       tools: ['vsCode', 'git'],
@@ -77,4 +78,8 @@ export class ProjectCardList {
       status: 'completed',
     },
   ];
+  openedProjects: number[] = [];
+  protected handleEvent($event: ContentEvent) {
+    console.log(event);
+  }
 }

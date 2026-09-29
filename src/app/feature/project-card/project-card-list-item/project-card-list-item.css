@@ -1,24 +1,7 @@
 
 
-main{
-  width: 50%;
-  margin: 0 auto;
-  border-radius: 0.55rem;
-  border: solid black;
-  background-color: aqua;
-  font-family: 'Inter', sans-serif;
-}
-
-h2, h3 {
+h3 {
   font-family: 'Space Grotesk', sans-serif;
-}
-
-.title{
-  text-align: center;
-  background-color: red;
-  margin: 0;
-  border-radius: 0.4rem 0.4rem 0 0;
-
 }
 
 .project-card{
@@ -39,7 +22,7 @@ h2, h3 {
   flex-direction: row;
 }
 
-#status{
+status{
   display: inline-block;
   border-radius: 0.3rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -47,14 +30,19 @@ h2, h3 {
 
 #statusIP{
   background-color: orange;
+  display: inline-block;
+  border-radius: 0.3rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 #statusCP{
   background-color: green;
+  display: inline-block;
+  border-radius: 0.3rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 800px) {
-  @media (max-width: 800px) {
     main {
       width: 80%;
     }
@@ -70,4 +58,3 @@ h2, h3 {
       text-align: center;
     }
   }
-}

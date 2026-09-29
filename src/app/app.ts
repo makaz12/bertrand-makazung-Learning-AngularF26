@@ -6,7 +6,7 @@ import { ExperienceList } from './feature/experience-list/experience-list';
 
 
 @Component({
-  imports: [RouterOutlet, ProjectCardList, ExperienceList],
+  imports: [RouterOutlet, ProjectCardList],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',

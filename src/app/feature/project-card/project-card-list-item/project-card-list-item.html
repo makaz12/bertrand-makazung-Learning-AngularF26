@@ -1,8 +1,13 @@
-<main>
-  <h2 class="title">My Projects</h2>
+
 
     <div class="project-card">
       <h3 class="item">{{project().name}}</h3>
+      @if(isFirst()){
+        <span class="badge"> First Project</span>
+      }
+      @else if(isFirst()){
+        <p>Last project</p>
+      }
       <div (click)="toggle()">
         <p class="item">Programming languages: {{project().programmingLanguages.join(', ')
           }}</p>
@@ -14,21 +19,22 @@
       </div>
 
       @if(project().imagePath !== ""){
-        <img [src]="project()?.imagePath" [alt]="project()?.name">
+        <img [src]="project().imagePath" [alt]="project()?.name">
+
+      } @else if (project().videoPath !== ""){
         <video controls width="500">
           <source [src]="project()?.videoPath" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-      } @else {
+      }
+
+      @else {
         <p>No media</p>
       }
       @switch (project().status){
 
-        @case ("in-progress"){<span id="statusIP">{{project().status}}</span id="statusIP">}
+        @case ("in-progress"){<span id="statusIP">{{project().status}}</span>}
         @default {<span id="statusCP">{{project().status}}</span>}
       }
 
     </div>
-
-    <p class="item">No projects to display!</p>
-</main>

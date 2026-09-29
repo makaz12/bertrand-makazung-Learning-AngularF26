@@ -20,4 +20,7 @@ export class ProjectCardListItem {
       action: 'opened',
     });
   }
+
+  isFirst = input(false);
+  isLast = input(false);
 }
