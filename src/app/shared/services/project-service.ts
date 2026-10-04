@@ -1,9 +1,7 @@
-import { Injectable, Service, signal } from '@angular/core';
+import {Service, signal } from '@angular/core';
 import {Project} from '../models/project';
 
-@Injectable({
-  providedIn: 'root',
-})
+
 @Service()
 export class ProjectService {
 
