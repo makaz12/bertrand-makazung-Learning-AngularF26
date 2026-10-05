@@ -1,10 +1,9 @@
-import {Service, signal } from '@angular/core';
+import {Service, signal, computed, effect } from '@angular/core';
 import {Project} from '../models/project';
 
 
 @Service()
 export class ProjectService {
-
   private project = signal<Project[]>([
     {
       id: 1,
@@ -74,5 +73,39 @@ export class ProjectService {
     },
   ]);
 
+  //   effect(() => {
+  //   console.log('There are now', this.project().length);
+  // })
+
   projectList = this.project.asReadonly();
+
+  //adds a project
+  addProject(p: Project) {
+    this.project.update((list) => [...list, p]);
+  }
+
+  //removes a project
+  removeProject(p: Project) {
+    this.project.update((list) => list.filter((i) => i.id !== p.id));
+  }
+
+  //counts the number of projects in progress
+  inProgressCount = computed(
+    () => this.project().filter((project) => project.status == 'in-progress').length,
+  );
+
+  inProgressMessage = computed(() => `There are ${this.inProgressCount()} projects in progress.`);
+
+  //counts the number of projects completed
+  completedCount = computed(
+    () => this.project().filter((project) => project.status == 'completed').length,
+  );
+
+  completedMessage = computed(() => `There are ${this.completedCount()} projects in progress.`);
+
+  effect() {
+    console.log('There are now', this.project().length);
+  }
 }
+
+
