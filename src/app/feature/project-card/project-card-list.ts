@@ -17,7 +17,7 @@ export class ProjectCardList {
 
   openedProjects: number[] = [];
   //event handler reads from project item
-  protected handleEvent(event: Project) {
-    this.projectService.removeProject(event)
+  protected handleEvent(event: ContentEvent) {
+    this.projectService.removeProject(event.id)
   }
 }

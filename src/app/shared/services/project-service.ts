@@ -85,8 +85,8 @@ export class ProjectService {
   }
 
   //removes a project
-  removeProject(p: Project) {
-    this.project.update((list) => list.filter((i) => i.id !== p.id));
+  removeProject(id : number) {
+    this.project.update((list) => list.filter((i) => i.id !== id));
   }
 
   //counts the number of projects in progress
