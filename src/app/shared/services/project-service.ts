@@ -1,8 +1,13 @@
-import {Service, signal, computed, effect } from '@angular/core';
+import {signal, computed,  inject, Injectable } from '@angular/core';
 import {Project} from '../models/project';
+import { APP_CONFIG } from '../../config/app-config';
 
 
-@Service()
+@Injectable(
+  {
+    providedIn: 'root'
+  }
+)
 export class ProjectService {
   private project = signal<Project[]>([
     {
@@ -106,4 +111,8 @@ export class ProjectService {
   effect() {
     console.log('There are now', this.project().length);
   }
+
+  private config = inject(APP_CONFIG);
+
+  displayUrl = computed(() =>`Data source: ${this.config.apiBaseUrl}`)
 }
