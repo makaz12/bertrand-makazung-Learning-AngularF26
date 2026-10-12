@@ -107,5 +107,3 @@ export class ProjectService {
     console.log('There are now', this.project().length);
   }
 }
-
-
