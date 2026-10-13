@@ -4,9 +4,9 @@ import { APP_CONFIG } from '../../config/app-config';
 
 
 @Injectable(
-  {
-    providedIn: 'root'
-  }
+  // {
+  //   providedIn: 'root'
+  // }
 )
 export class ProjectService {
   private project = signal<Project[]>([
@@ -24,7 +24,7 @@ export class ProjectService {
     {
       id: 2,
       name: 'Expense tracker',
-      imagePath: '../../../../public/images/expense-tracker.png',
+      imagePath: '/images/expense_tracker.png',
       description: 'A small expense tracker built with HTML, CSS and JavaScript',
       programmingLanguages: ['html', 'css', 'javascript'],
       tools: ['vsCode', 'git'],
@@ -36,7 +36,7 @@ export class ProjectService {
     {
       id: 3,
       name: 'todo app',
-      imagePath: '../../public/images/todo-app.png',
+      imagePath: '/images/todo_app.png',
       description: 'A simple todo application built with React',
       programmingLanguages: ['javascript', 'html', 'css'],
       tools: ['vsCode', 'react', 'npm'],
@@ -47,7 +47,7 @@ export class ProjectService {
     {
       id: 4,
       name: 'Simon memory game',
-      imagePath: '../../public/images/simon-game.png',
+      imagePath: '/images/simon_game.png',
       description: 'A small Simon memory game built with HTML, CSS and JavaScript',
       programmingLanguages: ['html', 'css', 'javascript'],
       tools: ['vsCode', 'git'],
@@ -58,7 +58,7 @@ export class ProjectService {
     {
       id: 5,
       name: 'House service',
-      imagePath: '../../public/images/node-webserver.png',
+      imagePath: '/images/house_service1.png',
       description: 'A simple web server built with Node.js',
       programmingLanguages: ['javascript'],
       tools: ['vsCode', 'nodeJs', 'npm'],
@@ -69,7 +69,7 @@ export class ProjectService {
     {
       id: 6,
       name: 'Rental website',
-      imagePath: '../../public/images/rental-website.png',
+      imagePath: '/images/rental_site.png',
       description: 'A small rental website built with React',
       programmingLanguages: ['javascript', 'html', 'css'],
       tools: ['vsCode', 'react', 'npm'],

@@ -7,7 +7,7 @@ export class MockProjectService {
     {
       id: 500,
       name: 'Mock project',
-      imagePath: '/images/mock.pmg',
+      imagePath: '/images/mock.png',
       description: 'Mock project description',
       programmingLanguages: ['typescript'],
       tools: ['Anglar, phpStorm'],

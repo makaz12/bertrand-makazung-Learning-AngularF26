@@ -18,9 +18,9 @@ export const appConfig: ApplicationConfig = {
       }
     },
 
-    // {
-    //   provide: ProjectService,
-    //   useClass: MockProjectService
-    // }
+    {
+      provide: ProjectService,
+      useClass: MockProjectService
+    }
   ]
 };

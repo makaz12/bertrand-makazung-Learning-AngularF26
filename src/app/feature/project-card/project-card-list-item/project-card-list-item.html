@@ -19,7 +19,7 @@
       </div>
 
       @if(project().imagePath !== ""){
-        <img [src]="project().imagePath" [alt]="project()?.name">
+        <img class="image" [src]="project().imagePath" [alt]="project()?.name">
 
       } @else if (project().videoPath !== ""){
         <video controls width="500">
