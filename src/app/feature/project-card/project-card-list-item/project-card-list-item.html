@@ -1,0 +1,40 @@
+
+
+    <div class="project-card">
+      <h3 class="item">{{project().name}}</h3>
+      @if(isFirst()){
+        <span class="badge"> First Project</span>
+      }
+      @else if(isFirst()){
+        <p>Last project</p>
+      }
+      <div (click)="toggle()">
+        <p class="item">Programming languages: {{project().programmingLanguages.join(', ')
+          }}</p>
+        <p class="item">Tools: {{project().tools.join(', ')}}</p>
+        <p class="item">Skills: {{project().skills.join(', ')}}</p>
+
+
+
+      </div>
+
+      @if(project().imagePath !== ""){
+        <img class="image" [src]="project().imagePath" [alt]="project()?.name">
+
+      } @else if (project().videoPath !== ""){
+        <video controls width="500">
+          <source [src]="project()?.videoPath" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      }
+
+      @else {
+        <p>No media</p>
+      }
+      @switch (project().status){
+
+        @case ("in-progress"){<span id="statusIP">{{project().status}}</span>}
+        @default {<span id="statusCP">{{project().status}}</span>}
+      }
+
+    </div>

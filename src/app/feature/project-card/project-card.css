@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap');
+
+main {
+  width: 50%;
+  margin: 2rem auto;
+  border: 2px solid #000;
+  border-radius: 0.75rem;
+  background-color: #bdf7f7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  padding: 0.5rem 1rem;
+  margin: 0;
+}
+
+.title {
+  text-align: center;
+  background-color: #ff5b5b;
+  color: white;
+  margin: 0;
+  padding: 1rem;
+  font-family: 'Unbounded', sans-serif;
+  letter-spacing: 1px;
+}
+
+app-project-card-list-item {
+  display: block;
+  transition: background-color 0.2s ease;
+}
+
+app-project-card-list-item.even {
+  background-color: #8ed1d1;
+}
+
+app-project-card-list-item.odd {
+  background-color: #bdf7f7;
+}
+
+app-project-card-list-item:hover {
+  background-color: #7ccccc;
+}
+
+.status-count {
+  margin: 1rem;
+  padding: 0.75rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.status-count p {
+  margin: 0.4rem 0;
+  font-weight: 500;
+}
+
+.first {
+  border-top: 2px solid black;
+}
+
+.last {
+  border-bottom: 2px solid black;
+}
+
+@media (max-width: 800px) {
+  main {
+    width: 80%;
+  }
+}
