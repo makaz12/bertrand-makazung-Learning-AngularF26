@@ -4,9 +4,9 @@ import { APP_CONFIG } from '../../config/app-config';
 
 
 @Injectable(
-  // {
-  //   providedIn: 'root'
-  // }
+  {
+    providedIn: 'root'
+  }
 )
 export class ProjectService {
   private project = signal<Project[]>([

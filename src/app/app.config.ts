@@ -17,10 +17,10 @@ export const appConfig: ApplicationConfig = {
         defaultCategory: 'project'
       }
     },
-
-    {
-      provide: ProjectService,
-      useClass: MockProjectService
-    }
+    //
+    // {
+    //   provide: ProjectService,
+    //   useClass: MockProjectService
+    // }
   ]
 };
