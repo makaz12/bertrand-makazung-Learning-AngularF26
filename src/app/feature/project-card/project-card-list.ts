@@ -2,10 +2,12 @@ import { Component, inject } from '@angular/core';
 import { ProjectCardListItem } from './project-card-list-item/project-card-list-item';
 import { ContentEvent } from '../../shared/events/content-event';
 import { ProjectService } from '../../shared/services/project-service';
-import { Project } from '../../shared/models/project';
+import {RouterOutlet} from '@angular/router';
+
 
 @Component({
-  imports: [ProjectCardListItem],
+  imports: [ProjectCardListItem, RouterOutlet],
+
   selector: 'app-project-card',
   styleUrl: './project-card.css',
   templateUrl: './project-card.html',
@@ -18,6 +20,6 @@ export class ProjectCardList {
   openedProjects: number[] = [];
   //event handler reads from project item
   protected handleEvent(event: ContentEvent) {
-    this.projectService.removeProject(event.id)
+    this.projectService.removeProject(event.id);
   }
 }

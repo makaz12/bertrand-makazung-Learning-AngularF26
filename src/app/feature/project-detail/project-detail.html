@@ -1,0 +1,22 @@
+<div class="info">
+  @if(detail(); as p){
+    <p class="item">Programming languages: {{p.programmingLanguages.join(', ')
+      }}</p>
+    <p class="item">Tools: {{p.tools.join(', ')}}</p>
+    <p class="item">Skills: {{p.skills.join(', ')}}</p>
+    @if(p.imagePath !== ""){
+      <img class="image" [src]="p.imagePath" [alt]="p?.name">
+
+    } @else if (p.videoPath !== ""){
+      <video controls width="500">
+        <source [src]="p?.videoPath" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    }
+
+    @else {
+      <p>No media</p>
+    }
+  }
+
+</div>

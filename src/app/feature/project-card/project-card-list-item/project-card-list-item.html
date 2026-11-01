@@ -8,29 +8,8 @@
       @else if(isFirst()){
         <p>Last project</p>
       }
-      <div>
-        <p class="item">Programming languages: {{project().programmingLanguages.join(', ')
-          }}</p>
-        <p class="item">Tools: {{project().tools.join(', ')}}</p>
-        <p class="item">Skills: {{project().skills.join(', ')}}</p>
 
-
-
-      </div>
-
-      @if(project().imagePath !== ""){
-        <img class="image" [src]="project().imagePath" [alt]="project()?.name">
-
-      } @else if (project().videoPath !== ""){
-        <video controls width="500">
-          <source [src]="project()?.videoPath" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      }
-
-      @else {
-        <p>No media</p>
-      }
+<!--      <app-project-detail [projectId]="project().id"></app-project-detail>-->
       @switch (project().status){
 
         @case ("in-progress"){<span id="statusIP">{{project().status}}</span>}
@@ -38,5 +17,7 @@
       }
 
       <button (click)="toggle()">remove</button>
+      <a [routerLink]="['/project', project().id]">View More</a>
+
 
     </div>
