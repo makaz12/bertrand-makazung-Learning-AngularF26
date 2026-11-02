@@ -1,0 +1,64 @@
+<form [formGroup] = "projectForm" (ngSubmit)="onSubmit()" )>
+  <input formControlName="name" placeholder="Name"/>
+  <input formControlName="imagePath" placeholder="ImagePath"/>
+  <input formControlName="videoPath" placeholder="VideoPath"/>
+  <input formControlName="description" placeholder="description"/>
+  <input formControlName="programmingLanguages" placeholder="programmingLanguage"/>
+  <input formControlName="tools" placeholder="Tools"/>
+  <input formControlName="skills" placeholder="Skills"/>
+  <select>
+    <option value="in-progress">In-progress</option>
+    <option value="completed">Completed</option>
+  </select>
+
+  @if (
+    projectForm.controls.name.touched &&
+    projectForm.controls.name.invalid
+    ) {
+    <p>The name is required</p>
+  }
+  @else if (
+    projectForm.controls.description.touched &&
+    projectForm.controls.description.invalid
+    ) {
+    <p>The description is required</p>
+  }
+  @else if (
+    projectForm.controls.imagePath.touched &&
+    projectForm.controls.imagePath.invalid
+    ) {
+    <p>The image path is required</p>
+  }
+  @else if (
+    projectForm.controls.videoPath.touched &&
+    projectForm.controls.videoPath.invalid
+    ) {
+    <p>The video path is required</p>
+  }
+  @else if (
+    projectForm.controls.programmingLanguages.touched &&
+    projectForm.controls.programmingLanguages.invalid
+    ) {
+    <p>The programming languages field is required</p>
+  }
+  @else if (
+    projectForm.controls.tools.touched &&
+    projectForm.controls.tools.invalid
+    ) {
+    <p>The tools field is required</p>
+  }
+  @else if (
+    projectForm.controls.skills.touched &&
+    projectForm.controls.skills.invalid
+    ) {
+    <p>The skills field is required</p>
+  }
+
+  <button type="submit" [disabled]="projectForm.invalid">
+    @if(!project()){
+      Add project
+    } @else {
+      Save changes
+    }
+  </button>
+</form>

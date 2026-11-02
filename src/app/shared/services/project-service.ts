@@ -115,4 +115,5 @@ export class ProjectService {
   private config = inject(APP_CONFIG);
 
   displayUrl = computed(() =>`Data source: ${this.config.apiBaseUrl}`)
+
 }

@@ -2,7 +2,7 @@
 
   <h2 class="title">My Projects</h2>
 
-
+<a [routerLink]="['/form']">Add project</a>
 <!--  <app-project-card-list-item [project]="projectList"/>-->
   @for (project of projectList(); track project.id; let odd = $odd; let even = $even; let count = $count; let first = $first; let last = $last) {
     @if(first){

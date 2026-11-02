@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { ProjectCardListItem } from './project-card-list-item/project-card-list-item';
 import { ContentEvent } from '../../shared/events/content-event';
 import { ProjectService } from '../../shared/services/project-service';
-import {RouterOutlet} from '@angular/router';
+import { RouterLink, RouterOutlet} from '@angular/router';
+import { form } from '@angular/forms/signals';
 
 
 @Component({
-  imports: [ProjectCardListItem, RouterOutlet],
+  imports: [ProjectCardListItem, RouterOutlet, RouterLink],
 
   selector: 'app-project-card',
   styleUrl: './project-card.css',
@@ -22,4 +23,6 @@ export class ProjectCardList {
   protected handleEvent(event: ContentEvent) {
     this.projectService.removeProject(event.id);
   }
+
+  protected readonly form = form;
 }
