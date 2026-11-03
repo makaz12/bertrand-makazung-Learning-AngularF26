@@ -2,6 +2,7 @@ import { Component, input, output } from '@angular/core';
 import { Project } from '../../../shared/models/project';
 import { ContentEvent } from '../../../shared/events/content-event';
 import {RouterLink} from '@angular/router';
+import {Guard} from '../../../shared/services/guard/guard';
 
 @Component({
   imports: [RouterLink],
@@ -24,6 +25,8 @@ export class ProjectCardListItem {
       action: 'opened',
     });
   }
+
+
 
   isFirst = input(false);
   isLast = input(false);

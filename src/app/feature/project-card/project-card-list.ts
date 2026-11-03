@@ -4,6 +4,7 @@ import { ContentEvent } from '../../shared/events/content-event';
 import { ProjectService } from '../../shared/services/project-service';
 import { RouterLink, RouterOutlet} from '@angular/router';
 import { form } from '@angular/forms/signals';
+import { Guard } from '../../shared/services/guard/guard';
 
 
 @Component({
@@ -18,11 +19,14 @@ export class ProjectCardList {
 
   projectList = this.projectService.projectList;
 
+  guard = inject(Guard)
+
   openedProjects: number[] = [];
   //event handler reads from project item
   protected handleEvent(event: ContentEvent) {
     this.projectService.removeProject(event.id);
   }
+
 
   protected readonly form = form;
 }
