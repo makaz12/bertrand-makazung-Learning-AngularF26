@@ -3,11 +3,9 @@ import {Project} from '../models/project';
 import { APP_CONFIG } from '../../config/app-config';
 
 
-@Injectable(
-  {
-    providedIn: 'root'
-  }
-)
+@Injectable({
+  providedIn: 'root',
+})
 export class ProjectService {
   private project = signal<Project[]>([
     {
@@ -90,8 +88,14 @@ export class ProjectService {
   }
 
   //removes a project
-  removeProject(id : number) {
+  removeProject(id: number) {
     this.project.update((list) => list.filter((i) => i.id !== id));
+  }
+
+  updateProject(id: number, changes: Partial<Project>): void {
+    this.project.update((projects) =>
+      projects.map((project) => (project.id === id ? { ...project, ...changes } : project)),
+    );
   }
 
   //counts the number of projects in progress
@@ -114,6 +118,5 @@ export class ProjectService {
 
   private config = inject(APP_CONFIG);
 
-  displayUrl = computed(() =>`Data source: ${this.config.apiBaseUrl}`)
-
+  displayUrl = computed(() => `Data source: ${this.config.apiBaseUrl}`);
 }

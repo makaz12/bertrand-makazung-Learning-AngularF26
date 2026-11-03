@@ -4,10 +4,10 @@
 
 <a [routerLink]="['/form']">Add project</a>
   <p (click)="guard.change()">
-    @if(!guard.guardEnabled){
-      Allow edit
-    } @else {
+    @if(guard.guardEnabled()){
       Block edit
+    } @else {
+       Allow edit
     }
   </p>
 <!--  <app-project-card-list-item [project]="projectList"/>-->

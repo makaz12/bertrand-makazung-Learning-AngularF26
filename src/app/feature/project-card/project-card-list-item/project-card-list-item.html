@@ -9,6 +9,8 @@
         <p>Last project</p>
       }
 
+      <p>{{project().description}}</p>
+
       <a [routerLink]="['/project/edit', project().id]">Edit</a>
 
 <!--      <app-project-detail [projectId]="project().id"></app-project-detail>-->
