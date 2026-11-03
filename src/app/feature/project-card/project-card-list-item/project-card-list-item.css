@@ -23,8 +23,8 @@ h3 {
 }
 
 .project-card *{
-  display: flex;
-  justify-items: center;
+  /*display: flex;*/
+  /*justify-items: center;*/
 }
 
 .item{

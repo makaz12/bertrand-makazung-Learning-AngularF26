@@ -1,0 +1,67 @@
+<form [formGroup] = "projectForm" (ngSubmit)="onSubmit()">
+  <label>Name: <input formControlName="name" placeholder="Name"/></label>
+  <label>Image Path: <input formControlName="imagePath" placeholder="ImagePath"/></label>
+  <label>Video Path: <input formControlName="videoPath" placeholder="VideoPath"/></label>
+  <label>Description: <input formControlName="description" placeholder="description"/></label>
+  <label>Programming Language: <input formControlName="programmingLanguages" placeholder="programmingLanguage"/></label>
+  <label>Tools: <input formControlName="tools" placeholder="Tools"/></label>
+  <label>Skills<input formControlName="skills" placeholder="Skills"/></label>
+  <label>Status<select formControlName="status">
+    <option value="in-progress">In-progress</option>
+    <option value="completed">Completed</option>
+  </select>
+  </label>
+
+  @if (
+    projectForm.controls.name.touched &&
+    projectForm.controls.name.hasError('required')
+    ) {
+    <p>The name is required</p>
+  } @else if (projectForm.hasError('unambiguousRole') && (projectForm.touched || projectForm.dirty)){
+    <p>Cannot use the name of a project as a description</p>
+  }
+  @else if (
+    projectForm.controls.description.touched &&
+    projectForm.controls.description.hasError('required')
+    ) {
+    <p>The description is required</p>
+  }
+  @else if (
+    projectForm.controls.imagePath.touched &&
+    projectForm.controls.imagePath.hasError('invalid')
+    ) {
+    <p>The image path is required</p>
+  }
+  @else if (
+    projectForm.controls.videoPath.touched &&
+    projectForm.controls.videoPath.hasError('invalid')
+    ) {
+    <p>The video path is required</p>
+  }
+  @else if (
+    projectForm.controls.programmingLanguages.touched &&
+    projectForm.controls.programmingLanguages.hasError('required')
+    ) {
+    <p>The programming languages field is required</p>
+  }
+  @else if (
+    projectForm.controls.tools.touched &&
+    projectForm.controls.tools.hasError('required')
+    ) {
+    <p>The tools field is required</p>
+  }
+  @else if (
+    projectForm.controls.skills.touched &&
+    projectForm.controls.skills.hasError('required')
+    ) {
+    <p>The skills field is required</p>
+  }
+
+  <button type="submit" [disabled]="projectForm.invalid">
+    @if(!project()){
+      Add project
+    } @else {
+      Save changes
+    }
+  </button>
+</form>

@@ -1,9 +1,11 @@
 import { Component, input, output } from '@angular/core';
 import { Project } from '../../../shared/models/project';
 import { ContentEvent } from '../../../shared/events/content-event';
+import {RouterLink} from '@angular/router';
+import {Guard} from '../../../shared/services/guard/guard';
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-project-card-list-item',
   styleUrl: './project-card-list-item.css',
   templateUrl: './project-card-list-item.html',
@@ -24,6 +26,12 @@ export class ProjectCardListItem {
     });
   }
 
+
+
   isFirst = input(false);
   isLast = input(false);
+
+  // protected detail(event:Project){
+  //   this.project.
+  // }
 }

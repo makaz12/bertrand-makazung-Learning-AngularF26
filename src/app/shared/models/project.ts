@@ -5,8 +5,8 @@ export interface Project {
   videoPath?: string;
   description: string;
   display?: boolean;
-  programmingLanguages: String[];
-  tools: String[];
-  skills: String[];
+  programmingLanguages: string[];
+  tools: string[];
+  skills: string[];
   status: "in-progress" | "completed";
 }

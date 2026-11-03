@@ -2,7 +2,14 @@
 
   <h2 class="title">My Projects</h2>
 
-
+<a [routerLink]="['/form']">Add project</a>
+  <p (click)="guard.change()">
+    @if(guard.guardEnabled()){
+      Block edit
+    } @else {
+       Allow edit
+    }
+  </p>
 <!--  <app-project-card-list-item [project]="projectList"/>-->
   @for (project of projectList(); track project.id; let odd = $odd; let even = $even; let count = $count; let first = $first; let last = $last) {
     @if(first){
@@ -23,8 +30,8 @@
 }
 
 <div class="status-count">
-  <p>{{projectService.completedMessage}}</p>
-  <p>{{projectService.inProgressMessage}}</p>
+  <p>{{projectService.completedMessage()}}</p>
+  <p>{{projectService.inProgressMessage()}}</p>
   <p>{{projectService.displayUrl()}}</p>
 </div>
 
