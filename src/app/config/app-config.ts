@@ -5,4 +5,4 @@ export interface AppConfig {
   defaultCategory: string;
 }
 
-export const APP_CONFIG = new InjectionToken<AppConfig>('app.config');
+export const APP_CONFIG = new InjectionToken<AppConfig>('https://api.github.com/users/makaz12/repos');
