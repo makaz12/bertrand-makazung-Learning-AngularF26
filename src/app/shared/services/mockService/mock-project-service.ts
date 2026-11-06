@@ -5,11 +5,13 @@ import { Project } from '../../models/project';
 export class MockProjectService {
   projects = signal<Project[]>([
     {
-      id: 500,
+      id: "500",
+      private: false,
+      html_url: "",
       name: 'Mock project',
       imagePath: '/images/mock.png',
       description: 'Mock project description',
-      programmingLanguages: ['typescript'],
+      languages: ['typescript'],
       tools: ['Anglar, phpStorm'],
       skills: ['Token Injection'],
       status: 'completed'
@@ -17,7 +19,7 @@ export class MockProjectService {
   ]);
 
   removeProject(id: number): void{
-    this.projects.update(list => list.filter(p => p.id !== id))
+    this.projects.update(list => list.filter(p => Number(p.id) !== id))
   }
   projectList = this.projects.asReadonly();
 

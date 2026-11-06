@@ -17,7 +17,7 @@ export class ProjectDetail {
   projectId = input.required<string>();
   private service = inject(ProjectService);
 
-  detail = computed(() => this.service.projectList().find((b) => b.id === Number(this.projectId())));
+  detail = computed(() => this.service.projectList().find((b) => b.id === this.projectId()));
 
 
 }

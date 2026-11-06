@@ -33,7 +33,7 @@ export class Form {
       // programmingLanguages: this.fb.control<string[]>([], Validators.required),
       // tools: this.fb.control<string[]>([], Validators.required),
       // skills: this.fb.control<string[]>([], Validators.required),
-      programmingLanguages: ['', Validators.required],
+      languages: ['', Validators.required],
       tools: ['', Validators.required],
       skills: ['', Validators.required],
       status: this.fb.control<'in-progress' | 'completed'>('completed'),
@@ -52,7 +52,7 @@ export class Form {
         //convert array back to string
         this.projectForm.patchValue({
           ...project,
-          programmingLanguages: project.programmingLanguages.join(', '),
+          languages: project.languages.join(', '),
           tools: project.tools.join(', '),
           skills: project.skills.join(', ')
           })
@@ -81,7 +81,7 @@ export class Form {
     };
   }
 
-  project = computed(() => this.service.projectList().find((b) => b.id === Number(this.projectId())));
+  project = computed(() => this.service.projectList().find((b) => b.id === this.projectId()));
 
   onSubmit(): void {
     if (this.projectForm.invalid) {
@@ -96,24 +96,26 @@ export class Form {
     //convert the user's input before sending it to the service
     const projectData = {
       ...value,
-      programmingLanguages: value.programmingLanguages.split(',').map((s) => s.trim()),
+      languages: value.languages.split(',').map((s) => s.trim()),
       tools: value.tools.split(',').map((s) => s.trim()),
       skills: value.skills.split(',').map((s) => s.trim()),
     };
     //checks the last id and increments by 1
-    const nextId =
+    const nextId = String(
       this.service.projectList().length > 0
-        ? Math.max(...this.service.projectList().map((p) => p.id)) + 1
-        : 1;
+        ? Math.max(...this.service.projectList().map((p) => Number(p.id))) + 1
+        : 1,
+    );
     let newVal;
     const existingProject = this.project();
     // checks if an existing project is selected
     if (existingProject) {
-      this.service.updateProject(existingProject.id, projectData);
+      this.service.updateProject(Number(existingProject.id), projectData);
     } else {
       this.service.addProject({
+        html_url: "", private: false,
         id: nextId,
-        ...projectData,
+        ...projectData
       });
     }
     this.projectForm.reset();
