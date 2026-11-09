@@ -1,0 +1,13 @@
+import { HttpInterceptorFn } from '@angular/common/http';
+import { inject } from '@angular/core';
+import { LoadingService } from '../loadingService/loading-service';
+import { finalize } from 'rxjs';
+
+export const loaderInterceptor: HttpInterceptorFn = (req, next) => {
+  const loading = inject(LoadingService);
+  loading.increase();
+
+  return next(req).pipe(
+    finalize(() => loading.decrease())
+  );
+};

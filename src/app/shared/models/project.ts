@@ -1,11 +1,12 @@
 export interface Project {
-  id: number;
+  id: string;
+  private: boolean;
+  html_url: string;
   name: string;
   imagePath?: string;
   videoPath?: string;
   description: string;
-  display?: boolean;
-  programmingLanguages: string[];
+  languages: string[];
   tools: string[];
   skills: string[];
   status: "in-progress" | "completed";

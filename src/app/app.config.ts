@@ -4,25 +4,32 @@ import { routes } from './app.routes';
 import { APP_CONFIG } from './config/app-config';
 import { ProjectService } from './shared/services/project-service';
 import { MockProjectService } from './shared/services/mockService/mock-project-service';
+import {provideHttpClient, withInterceptors} from '@angular/common/http';
+import {loaderInterceptor} from './shared/loaderInterceptor/loader-interceptor-interceptor';
+import { errorInterceptor } from './shared/errorInterceptor/error-interceptor-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes, withComponentInputBinding()),
 
+    provideHttpClient(
+      withInterceptors([loaderInterceptor, errorInterceptor])
+    ),
+
+
     {
       provide: APP_CONFIG,
       useValue: {
-        apiBaseUrl: 'https://apiUrl.com/api',
-        defaultCategory: 'project'
-      }
+        apiBaseUrl: 'https://api.github.com',
+        defaultCategory: 'project',
+      },
     },
+
     //
     // {
     //   provide: ProjectService,
     //   useClass: MockProjectService
     // }
-
-
-  ]
+  ],
 };

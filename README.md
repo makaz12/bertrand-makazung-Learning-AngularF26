@@ -57,3 +57,19 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+# Github Rest API Docuumentation
+
+https://docs.github.com/en/rest/repos/repos?utm_source=chatgpt.com&apiVersion=2026-03-10#list-repositories-for-a-user
+
+# My API
+
+https://api.github.com/users/makaz12/repos
+
+# Part 3 explained
+
+I chose option A because it gives me more control over how the API response is handled and stored in the existing writable signal. I already had a writable signal so it was the more direct approach
+
+# Local changes
+Every time the page is refreshed, angular restarts the app and the manually added data is overwritten with the new one because the signal gets recreated. The API fetching the data from a persistant source, that data is automatically rerendered.

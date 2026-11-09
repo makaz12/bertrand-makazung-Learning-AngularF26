@@ -5,10 +5,11 @@ import { ProjectService } from '../../shared/services/project-service';
 import { RouterLink, RouterOutlet} from '@angular/router';
 import { form } from '@angular/forms/signals';
 import { Guard } from '../../shared/services/guard/guard';
+import { LoadingService } from '../../shared/loadingService/loading-service';
 
 
 @Component({
-  imports: [ProjectCardListItem, RouterOutlet, RouterLink],
+  imports: [ProjectCardListItem, RouterLink],
 
   selector: 'app-project-card',
   styleUrl: './project-card.css',
@@ -19,14 +20,15 @@ export class ProjectCardList {
 
   projectList = this.projectService.projectList;
 
-  guard = inject(Guard)
+  guard = inject(Guard);
+
+  loadingService = inject(LoadingService);
 
   openedProjects: number[] = [];
   //event handler reads from project item
   protected handleEvent(event: ContentEvent) {
     this.projectService.removeProject(event.id);
   }
-
 
   protected readonly form = form;
 }

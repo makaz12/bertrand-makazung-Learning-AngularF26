@@ -3,7 +3,7 @@
   <label>Image Path: <input formControlName="imagePath" placeholder="ImagePath"/></label>
   <label>Video Path: <input formControlName="videoPath" placeholder="VideoPath"/></label>
   <label>Description: <input formControlName="description" placeholder="description"/></label>
-  <label>Programming Language: <input formControlName="programmingLanguages" placeholder="programmingLanguage"/></label>
+  <label>Programming Language: <input formControlName="languages" placeholder="programmingLanguage"/></label>
   <label>Tools: <input formControlName="tools" placeholder="Tools"/></label>
   <label>Skills<input formControlName="skills" placeholder="Skills"/></label>
   <label>Status<select formControlName="status">
@@ -39,8 +39,8 @@
     <p>The video path is required</p>
   }
   @else if (
-    projectForm.controls.programmingLanguages.touched &&
-    projectForm.controls.programmingLanguages.hasError('required')
+    projectForm.controls.languages.touched &&
+    projectForm.controls.languages.hasError('required')
     ) {
     <p>The programming languages field is required</p>
   }

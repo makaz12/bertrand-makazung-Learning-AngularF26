@@ -21,7 +21,7 @@ export class ProjectCardListItem {
   //emits the event action
   toggle(): void {
     this.contentEvent.emit({
-      id: this.project().id,
+      id: Number(this.project().id),
       action: 'opened',
     });
   }
