@@ -6,6 +6,7 @@ import { ProjectService } from './shared/services/project-service';
 import { MockProjectService } from './shared/services/mockService/mock-project-service';
 import {provideHttpClient, withInterceptors} from '@angular/common/http';
 import {loaderInterceptor} from './shared/loaderInterceptor/loader-interceptor-interceptor';
+import { errorInterceptor } from './shared/errorInterceptor/error-interceptor-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,7 +14,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes, withComponentInputBinding()),
 
     provideHttpClient(
-      withInterceptors([loaderInterceptor])
+      withInterceptors([loaderInterceptor, errorInterceptor])
     ),
 
 

@@ -16,11 +16,11 @@ export class ProjectDetail {
   projectId = input.required<string>();
   private service = inject(ProjectService);
 
-  // detail = computed(() => this.service.projectList().find((b) => b.id === this.projectId()));
+  detail = computed(() => this.service.projectList().find((b) => b.id === this.projectId()));
 
-  detail = signal<Project | undefined>(
-    this.route.snapshot.data[`project`]
-  )
+  // detail = signal<Project | undefined>(
+  //   this.route.snapshot.data[`project`]
+  // )
   constructor() {
     console.log(this.route.snapshot.data['project']);
   }
