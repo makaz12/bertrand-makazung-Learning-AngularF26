@@ -12,6 +12,11 @@
     }
   </button>
 
+  @if (loadingService.isLoading()) {
+    <span>Loading...</span>
+  }
+
+
   @if (projectService.loading()) {
     <p>Loading projects...</p>
 
