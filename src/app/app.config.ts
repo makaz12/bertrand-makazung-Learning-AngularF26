@@ -13,16 +13,14 @@ export const appConfig: ApplicationConfig = {
     {
       provide: APP_CONFIG,
       useValue: {
-        apiBaseUrl: 'https://apiUrl.com/api',
-        defaultCategory: 'project'
-      }
+        apiBaseUrl: 'https://api.github.com',
+        defaultCategory: 'project',
+      },
     },
     //
     // {
     //   provide: ProjectService,
     //   useClass: MockProjectService
     // }
-
-
-  ]
+  ],
 };

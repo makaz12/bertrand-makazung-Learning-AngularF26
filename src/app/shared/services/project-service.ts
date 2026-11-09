@@ -1,6 +1,8 @@
 import {signal, computed,  inject, Injectable } from '@angular/core';
 import {Project} from '../models/project';
 import { APP_CONFIG } from '../../config/app-config';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -93,11 +95,48 @@ export class ProjectService {
   //   console.log('There are now', this.project().length);
   // })
 
+  private http = inject(HttpClient);
+  private config = inject(APP_CONFIG);
+  loading = signal(false);
+
+  error = signal<string | null>(null);
+
   projectList = this.project.asReadonly();
+
+  constructor() {
+    this.load();
+  }
+
+  load() {
+    this.loading.set(true);
+    this.error.set(null);
+
+    this.http
+      .get<Project[]>(`${this.config.apiBaseUrl}/users/makaz12/repos`, {
+        params: { per_page: 20 },
+      })
+      .subscribe({
+        next: (list) => {
+          this.project.set(list);
+          this.loading.set(false);
+        },
+        error: () => {
+          this.error.set('Could not load data.');
+          this.loading.set(false);
+        },
+      });
+  }
 
   //adds a project
   addProject(p: Project) {
     this.project.update((list) => [...list, p]);
+  }
+
+  //get a prject
+  getProject(): Observable<Project[]> {
+    return this.http.get<Project[]>(`${this.config.apiBaseUrl}/users/makaz12/repos`, {
+      params: { per_page: 20 },
+    });
   }
 
   //removes a project
@@ -128,8 +167,6 @@ export class ProjectService {
   effect() {
     console.log('There are now', this.project().length);
   }
-
-  private config = inject(APP_CONFIG);
 
   displayUrl = computed(() => `Data source: ${this.config.apiBaseUrl}`);
 }

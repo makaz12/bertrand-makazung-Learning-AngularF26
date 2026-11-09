@@ -8,7 +8,7 @@ import { Guard } from '../../shared/services/guard/guard';
 
 
 @Component({
-  imports: [ProjectCardListItem, RouterOutlet, RouterLink],
+  imports: [ProjectCardListItem, RouterLink],
 
   selector: 'app-project-card',
   styleUrl: './project-card.css',
