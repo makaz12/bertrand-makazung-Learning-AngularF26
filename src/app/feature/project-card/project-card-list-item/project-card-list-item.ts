@@ -4,9 +4,11 @@ import { ContentEvent } from '../../../shared/events/content-event';
 import {RouterLink} from '@angular/router';
 import {Guard} from '../../../shared/services/guard/guard';
 import {TitleCasePipe} from '@angular/common';
+import { DescShortPipe } from '../../../shared/pipes/descShort/desc-short-pipe';
+import {RepoNamePipe} from '../../../shared/pipes/repoName/repo-name-pipe';
 
 @Component({
-  imports: [RouterLink, TitleCasePipe],
+  imports: [RouterLink, TitleCasePipe, DescShortPipe, RepoNamePipe],
   selector: 'app-project-card-list-item',
   styleUrl: './project-card-list-item.css',
   templateUrl: './project-card-list-item.html',
