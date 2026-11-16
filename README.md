@@ -101,4 +101,10 @@ chunk-AHH5GJP3.js   | project-detail |   1.59 kB |               778 bytes
 Application bundle generation complete. [1.796 seconds] - 2026-11-16T21:29:54.208Z
 
 # Lazy load result explanation
-The form and project-details modules were removede from the main loading process and loaded only when the user navigates to those routes.
+The form and project-details modules were removed from the main loading process and loaded only when the user navigates to those routes.
+
+
+# LifeCycle
+If this.id is accessed in a constructor,it may run before Angular sets the id input and this will result in an undefined error.
+
+When the user navigates from the detail page to another route, ngOnDestroy runs and clears the data from that route. So Angular destroys the routed component when the user navigates away from it.
