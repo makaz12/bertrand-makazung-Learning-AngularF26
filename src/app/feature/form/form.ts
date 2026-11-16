@@ -1,4 +1,4 @@
-import { Component, computed, effect, inject, input } from '@angular/core';
+import { Component, computed, effect, inject, input, afterNextRender, ElementRef, viewChild, asNativeElements } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -18,6 +18,7 @@ import { ValidationError } from '@angular/forms/signals';
   templateUrl: './form.html',
 })
 export class Form {
+  firstField = viewChild<ElementRef<HTMLInputElement>>('firstField')
   private fb = inject(FormBuilder).nonNullable;
   private service = inject(ProjectService);
   readonly projectId = input<string>(); // private project = inject();
@@ -58,6 +59,10 @@ export class Form {
           })
       }
     });
+    //use afteNextRender because even though the element is created, thr focus cannot be applied until it is rendered on the screen
+    afterNextRender(() =>{
+      this.firstField()?.nativeElement.focus();
+    })
   }
 
   //checks that the user does not enter an input that is not accepted

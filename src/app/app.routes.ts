@@ -12,11 +12,16 @@ export const routes: Routes = [
       import('./feature/project-detail/project-detail').then((m) => m.ProjectDetail),
     resolve: { project: projectResolver },
   },
-  {
-    path: 'project/edit/:projectId',
-    loadComponent: () => import('./feature/form/form').then((m) => m.Form),
-    canActivate: [guardGuard],
-  },
+  // {
+  //   path: 'project/edit/:projectId',
+  //   loadComponent: () => import('./feature/form/form').then((m) => m.Form),
+  //   canActivate: [guardGuard],
+  // },
+  //
+  // { path: 'form', loadComponent: () => import('./feature/form/form').then(m => m.Form) },
 
-  { path: 'form', loadComponent: () => import('./feature/form/form').then(m => m.Form) },
+  {
+    path: '',
+    loadChildren: () => import('./project.route').then((m) => m.default),
+  },
 ];
