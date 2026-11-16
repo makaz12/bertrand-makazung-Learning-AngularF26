@@ -6,10 +6,11 @@ import { RouterLink, RouterOutlet} from '@angular/router';
 import { form } from '@angular/forms/signals';
 import { Guard } from '../../shared/services/guard/guard';
 import { LoadingService } from '../../shared/loadingService/loading-service';
+import { DatePipe, DecimalPipe } from '@angular/common';
 
 
 @Component({
-  imports: [ProjectCardListItem, RouterLink],
+  imports: [ProjectCardListItem, RouterLink, DatePipe, DecimalPipe],
 
   selector: 'app-project-card',
   styleUrl: './project-card.css',
@@ -23,6 +24,8 @@ export class ProjectCardList {
   guard = inject(Guard);
 
   loadingService = inject(LoadingService);
+
+  date = Date.now();
 
   openedProjects: number[] = [];
   //event handler reads from project item
