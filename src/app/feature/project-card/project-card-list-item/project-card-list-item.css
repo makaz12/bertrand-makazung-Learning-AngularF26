@@ -37,6 +37,10 @@ status{
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+.remove{
+  margin: 1.3rem;
+}
+
 #statusIP{
   background-color: orange;
   display: inline-block;
