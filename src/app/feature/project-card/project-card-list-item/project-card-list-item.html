@@ -1,7 +1,7 @@
 
 
     <div class="project-card">
-      <h3 class="item">{{project().name}}</h3>
+      <h3 class="item">{{project().name | titlecase | repoName }}</h3>
       @if(isFirst()){
         <span class="badge"> First Project</span>
       }
@@ -9,7 +9,7 @@
         <p>Last project</p>
       }
 
-      <p>{{project().description}}</p>
+      <p>{{project().description | descShort: 50}}</p>
 
 
 

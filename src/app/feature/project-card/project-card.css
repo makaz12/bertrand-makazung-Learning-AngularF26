@@ -17,6 +17,11 @@ h3 {
   margin: 0;
 }
 
+#date{
+  margin: 1rem;
+  float: right;
+}
+
 .title {
   text-align: center;
   background-color: #ff5b5b;
