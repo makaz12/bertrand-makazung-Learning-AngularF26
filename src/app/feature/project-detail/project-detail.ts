@@ -3,12 +3,13 @@ import { ProjectService } from '../../shared/services/project-service'
 import { ActivatedRoute } from '@angular/router';
 import { Project } from '../../shared/models/project';
 import { timeInterval } from 'rxjs';
+import { HighLight } from '../../shared/directives/highLight/high-light';
 
 @Component({
-  imports: [],
   selector: 'app-project-detail',
   styleUrl: './project-detail.css',
   templateUrl: './project-detail.html',
+  imports: [HighLight],
 })
 export class ProjectDetail implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);

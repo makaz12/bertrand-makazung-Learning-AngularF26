@@ -6,9 +6,10 @@ import {Guard} from '../../../shared/services/guard/guard';
 import {TitleCasePipe} from '@angular/common';
 import { DescShortPipe } from '../../../shared/pipes/descShort/desc-short-pipe';
 import {RepoNamePipe} from '../../../shared/pipes/repoName/repo-name-pipe';
+import {HighLight} from '../../../shared/directives/highLight/high-light';
 
 @Component({
-  imports: [RouterLink, TitleCasePipe, DescShortPipe, RepoNamePipe],
+  imports: [RouterLink, TitleCasePipe, DescShortPipe, RepoNamePipe, HighLight],
   selector: 'app-project-card-list-item',
   styleUrl: './project-card-list-item.css',
   templateUrl: './project-card-list-item.html',
