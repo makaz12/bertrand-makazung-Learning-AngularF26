@@ -22,7 +22,7 @@
         @default {<span id="statusCP">{{project().status}}</span>}
       }
 
-      <button class="remove" (click)="toggle()">remove</button>
+      <button type="button" appRemove="Delete this project?" (confirmed)="toggle()" class="remove">remove</button>
       <a [routerLink]="['/project', project().id]">View More</a>
 
 
