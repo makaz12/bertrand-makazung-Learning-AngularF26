@@ -14,6 +14,12 @@ import { Remove } from '../../../shared/directives/remove/remove';
   selector: 'app-project-card-list-item',
   styleUrl: './project-card-list-item.css',
   templateUrl: './project-card-list-item.html',
+  hostDirectives: [
+    {
+      directive: HighLight,
+      inputs: ['appHoghlight: highlightColour']
+    }
+  ]
 })
 export class ProjectCardListItem {
   //receives projects from the projectList array

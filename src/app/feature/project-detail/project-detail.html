@@ -19,4 +19,11 @@
     }
   }
 
+  @if(detail(); as p){
+  <button type="button" (click)="saved.toggleId(p.id)">
+    {{ saved.isSaved(p.id) ? 'Unsave' : 'Save' }}
+  </button>
+  }
+
+
 </div>

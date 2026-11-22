@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Project } from '../../shared/models/project';
 import { timeInterval } from 'rxjs';
 import { HighLight } from '../../shared/directives/highLight/high-light';
+import { SavedService } from '../../shared/savedService/saved-service';
 
 @Component({
   selector: 'app-project-detail',
@@ -19,6 +20,9 @@ export class ProjectDetail implements OnInit, OnDestroy {
   // id = Number(this.route.snapshot.paramMap.get('id'));
   projectId = input.required<string>();
   private service = inject(ProjectService);
+
+  //saved detail
+  readonly saved = inject(SavedService)
 
   detail = computed(() => this.service.projectList().find((b) => b.id === this.projectId()));
 
@@ -48,5 +52,9 @@ export class ProjectDetail implements OnInit, OnDestroy {
     if (project) {
       console.log(`LifeCycle: closed: ${project.name} after ${timeSpent}`);
     }
+  }
+
+  isSaved(){
+
   }
 }

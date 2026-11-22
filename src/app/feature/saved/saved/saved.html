@@ -1,0 +1,14 @@
+
+<h2>Saved Projects</h2>
+
+@if (savedPrject().length > 0) {
+  @for (project of savedPrject(); track project.id) {
+    <div>
+      <a [routerLink]="['/project', project.id]">
+        {{ project.name }}
+      </a>
+    </div>
+  }
+} @else {
+  <p>You haven't saved any projects yet.</p>
+}

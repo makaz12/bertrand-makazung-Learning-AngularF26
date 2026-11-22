@@ -7,10 +7,12 @@ import { form } from '@angular/forms/signals';
 import { Guard } from '../../shared/services/guard/guard';
 import { LoadingService } from '../../shared/loadingService/loading-service';
 import { DatePipe, DecimalPipe } from '@angular/common';
+import { PreferedService } from '../../shared/preferedService/prefered-service';
+import { HighLight } from '../../shared/directives/highLight/high-light';
 
 
 @Component({
-  imports: [ProjectCardListItem, RouterLink, DatePipe, DecimalPipe],
+  imports: [ProjectCardListItem, RouterLink, DatePipe, DecimalPipe, HighLight],
 
   selector: 'app-project-card',
   styleUrl: './project-card.css',
@@ -18,6 +20,9 @@ import { DatePipe, DecimalPipe } from '@angular/common';
 })
 export class ProjectCardList {
   protected projectService = inject(ProjectService);
+
+  //background change
+  readonly preferenceService = inject(PreferedService);
 
   projectList = this.projectService.projectList;
 

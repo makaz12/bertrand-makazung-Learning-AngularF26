@@ -10,6 +10,6 @@ import { color } from 'listr2';
   },
 })
 export class HighLight {
-  protected color = input('', {alias: 'appHoghlight'})
+   color = input('', {alias: 'appHoghlight'})
   protected active = signal(false);
 }

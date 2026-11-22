@@ -108,3 +108,7 @@ The form and project-details modules were removed from the main loading process 
 If this.id is accessed in a constructor,it may run before Angular sets the id input and this will result in an undefined error.
 
 When the user navigates from the detail page to another route, ngOnDestroy runs and clears the data from that route. So Angular destroys the routed component when the user navigates away from it.
+
+# localStorage
+I chose to implement a yellow colour background to the whole website because that is  the most prominent feature to display and it makes reading better.
+One thing that should never be stored is the project itself.
