@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ErrorService } from './shared/errorService/error-service';
+import { PreferedService } from './shared/preferedService/prefered-service';
 
 
 @Component({
@@ -11,4 +12,5 @@ import { ErrorService } from './shared/errorService/error-service';
 })
 export class App {
   errorService = inject(ErrorService);
+  readonly preferedService = inject(PreferedService);
 }

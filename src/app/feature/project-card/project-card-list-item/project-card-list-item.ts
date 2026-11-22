@@ -3,12 +3,23 @@ import { Project } from '../../../shared/models/project';
 import { ContentEvent } from '../../../shared/events/content-event';
 import {RouterLink} from '@angular/router';
 import {Guard} from '../../../shared/services/guard/guard';
+import {TitleCasePipe} from '@angular/common';
+import { DescShortPipe } from '../../../shared/pipes/descShort/desc-short-pipe';
+import {RepoNamePipe} from '../../../shared/pipes/repoName/repo-name-pipe';
+import {HighLight} from '../../../shared/directives/highLight/high-light';
+import { Remove } from '../../../shared/directives/remove/remove';
 
 @Component({
-  imports: [RouterLink],
+  imports: [RouterLink, TitleCasePipe, DescShortPipe, RepoNamePipe, HighLight, Remove],
   selector: 'app-project-card-list-item',
   styleUrl: './project-card-list-item.css',
   templateUrl: './project-card-list-item.html',
+  hostDirectives: [
+    {
+      directive: HighLight,
+      inputs: ['appHoghlight: highlightColour']
+    }
+  ]
 })
 export class ProjectCardListItem {
   //receives projects from the projectList array
@@ -25,8 +36,6 @@ export class ProjectCardListItem {
       action: 'opened',
     });
   }
-
-
 
   isFirst = input(false);
   isLast = input(false);

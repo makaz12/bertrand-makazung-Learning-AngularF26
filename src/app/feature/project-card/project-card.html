@@ -1,5 +1,5 @@
 
-<main>
+<main [style.background-color]="preferenceService.backgroundColour()">
   <h2 class="title">My Projects</h2>
 
   <a [routerLink]="['/form']">Add project</a>
@@ -11,6 +11,20 @@
       Allow edit
     }
   </button>
+
+  <div [style.background-color]="preferenceService.backgroundColour()">
+
+    <button (click)="preferenceService.changeBackground('yellow')">
+      Yellow Background
+    </button>
+
+    <button (click)="preferenceService.changeBackground('white')">
+      Default Background
+    </button>
+
+  </div>
+
+  <span id="date">{{date | date}}</span>
 
   @if (loadingService.isLoading()) {
     <span>Loading...</span>
@@ -34,7 +48,7 @@
       let last = $last
       ) {
       @if (first) {
-        <h3>{{ count }} project(s) displayed</h3>
+        <h3>{{ count | number:'1.0-0'}} project(s) displayed</h3>
       }
 
       <app-project-card-list-item
@@ -43,7 +57,9 @@
         [class.even]="even"
         [class.odd]="odd"
         [class.first]="first"
-        [class.last]="last">
+        [class.last]="last"
+        highlightColour="yellow"
+      >
       </app-project-card-list-item>
 
     } @empty {

@@ -1,5 +1,5 @@
 <form [formGroup] = "projectForm" (ngSubmit)="onSubmit()">
-  <label>Name: <input formControlName="name" placeholder="Name"/></label>
+  <label>Name: <input #firstField formControlName="name" placeholder="Name"/></label>
   <label>Image Path: <input formControlName="imagePath" placeholder="ImagePath"/></label>
   <label>Video Path: <input formControlName="videoPath" placeholder="VideoPath"/></label>
   <label>Description: <input formControlName="description" placeholder="description"/></label>

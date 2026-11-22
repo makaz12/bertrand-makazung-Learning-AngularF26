@@ -3,7 +3,7 @@
     <p class="item">Programming languages: {{p.languages.join(', ')
       }}</p>
     <p class="item">Tools: {{p.tools.join(', ')}}</p>
-    <p class="item">Skills: {{p.skills.join(', ')}}</p>
+    <p class="item" appHighLight="#7F00FF">Skills: {{p.skills.join(', ')}}</p>
     @if(p.imagePath !== ""){
       <img class="image" [src]="p.imagePath" [alt]="p?.name">
 
@@ -18,5 +18,12 @@
       <p>No media</p>
     }
   }
+
+  @if(detail(); as p){
+  <button type="button" (click)="saved.toggleId(p.id)">
+    {{ saved.isSaved(p.id) ? 'Unsave' : 'Save' }}
+  </button>
+  }
+
 
 </div>
